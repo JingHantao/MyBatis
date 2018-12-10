@@ -6,4 +6,5 @@ package com.atmoon.mybatis;
  * @Description:
  */
 public class JdbcTest {
+
 }
