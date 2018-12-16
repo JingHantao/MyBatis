@@ -20,7 +20,7 @@ public class User implements java.io.Serializable {
 
     private Integer sex;
 
-    private Date date;
+    private Date birthday;
 
     private String created;
 
@@ -74,12 +74,12 @@ public class User implements java.io.Serializable {
         this.sex = sex;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getCreated() {
@@ -107,7 +107,7 @@ public class User implements java.io.Serializable {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", sex=" + sex +
-                ", date=" + date +
+                ", birthday=" + birthday +
                 ", created='" + created + '\'' +
                 ", updated='" + updated + '\'' +
                 '}';
