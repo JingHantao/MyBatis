@@ -24,14 +24,18 @@ public class UserDaoImpl implements UserDao {
     }
 
     public List<User> qyeryUserAll() {
-        return this.sqlSession.selectList("UserDao.qyeryUserAll");
+        return this.sqlSession.selectList("UserDao.queryUserAll");
     }
 
     public void insertUser(User user) {
-        this.sqlSession.insert("UserDao.insertUser");
+        this.sqlSession.insert("UserDao.insertUser",user);
+    }
+
+    public void updateUser(User user) {
+        this.sqlSession.update("UserDao.updateUser",user);
     }
 
     public void deleteUserById(Integer id) {
-        this.sqlSession.delete("UserDao.deleteUserById");
+        this.sqlSession.delete("UserDao.deleteUserById",id);
     }
 }

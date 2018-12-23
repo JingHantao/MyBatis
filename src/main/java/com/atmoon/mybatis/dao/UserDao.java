@@ -5,6 +5,7 @@ import com.atmoon.mybatis.bean.User;
 import java.util.List;
 
 /**
+ * @author asuspc
  * @auther: asuspc
  * @Date: 2018/12/22 21:58
  * @Description:
@@ -29,6 +30,12 @@ public interface UserDao {
      * @param user
      */
     public void insertUser(User user);
+
+    /**
+     * 更新用户信息
+     * @param user
+     */
+    public void updateUser(User user);
 
     /**
      * 根据id删除用户
