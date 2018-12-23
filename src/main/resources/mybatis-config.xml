@@ -63,5 +63,6 @@
     <mappers>
         <mapper resource="mappers/MyMapper.xml" />
         <mapper resource="mappers/UserDaoMapper.xml"></mapper>
+        <mapper resource="mappers/UserMapper.xml"></mapper>
     </mappers>
 </configuration>
