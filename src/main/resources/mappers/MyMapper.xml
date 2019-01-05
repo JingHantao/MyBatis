@@ -9,4 +9,14 @@
     <select id="selectUser" resultType="com.atmoon.mybatis.bean.User">
       select * from tb_user where id = #{id}
     </select>
+
+    <select id="queryAllWords" resultType="com.atmoon.mybatis.Dictionary">
+        SELECT
+            *
+        FROM
+            dictionary d
+        WHERE
+            d.english LIKE concat(concat(#{english},'%'))
+            LIMIT 20
+    </select>
 </mapper>
