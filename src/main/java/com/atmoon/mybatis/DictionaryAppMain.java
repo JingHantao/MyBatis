@@ -56,6 +56,7 @@ public class DictionaryAppMain extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("FastDictionary");
         setBounds(100, 100, 503, 588);
+        setResizable(false);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -83,6 +84,7 @@ public class DictionaryAppMain extends JFrame implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 if(e.getSource()==查找){
+                    textresult.setText("");
                     String inputword =  textinput.getText();
                     System.out.println("查找"+inputword);
                     // 指定全局配置文件
