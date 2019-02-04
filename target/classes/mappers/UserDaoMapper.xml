@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper:根标签，namespace：命名空间，随便写，一般保证命名空间唯一 -->
+<mapper namespace="UserDao">
+    <!-- statement，内容：sql语句。id：唯一标识，随便写，在同一个命名空间下保持唯一
+       resultType：sql语句查询结果集的封装类型,tb_user即为数据库中的表-->
+    <!--<select id="queryUserById" resultType="com.atmoon.mybatis.bean.User">
+      select * from tb_user where id = #{id}
+    </select>-->
+
+    <select id="queryUserById" resultType="com.atmoon.mybatis.bean.User">
+        SELECT
+            tuser.id AS id,
+            tuser.username AS userName,
+            tuser.PASSWORD AS PASSWORD,
+            tuser.NAME AS NAME,
+            tuser.age AS age,
+            tuser.birthday AS birthday,
+            tuser.sex AS sex,
+            tuser.created AS created,
+            tuser.updated AS updated
+        FROM
+            tb_user tuser
+        WHERE
+            tuser.id = #{id};
+    </select>
+
+    <select id="queryUserAll" resultType="com.atmoon.mybatis.bean.User">
+        select * from tb_user;
+    </select>
+
+    <insert id="insertUser" parameterType="com.atmoon.mybatis.bean.User">
+        INSERT INTO tb_user (
+          username,
+          PASSWORD,
+          NAME,
+          age,
+          sex,
+          birthday,
+          created,
+          updated
+          )
+        VALUE(
+          #{userName},
+          #{password},
+          #{name},
+          #{age},
+          #{sex},
+          #{birthday},
+          now( ),
+          now( )
+          );
+    </insert>
+    
+    <update id="updateUser" parameterType="com.atmoon.mybatis.bean.User">
+        update tb_user
+        set
+            <if test="userName!=null">username = #{userName},</if>
+            <if test="password!=null">password = #{password},</if>
+            <if test="name!=null">name = #{name},</if>
+            <if test="age!=null">age = #{age},</if>
+            <if test="sex!=null">sex = #{sex},</if>
+            <if test="birthday!=null">birthday = #{birthday},</if>
+            updated = now()
+        where
+            id=#{id};
+
+    </update>
+
+    <delete id="deleteUserById" parameterType="com.atmoon.mybatis.bean.User">
+        delete from tb_user where id = #{id}
+    </delete>
+
+</mapper>

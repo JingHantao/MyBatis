@@ -1,14 +1,10 @@
 package com.atmoon.mybatis;
 
-import com.atmoon.mybatis.bean.User;
-import com.mysql.cj.jdbc.ConnectionImpl;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
 import java.io.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +22,13 @@ public class JdbcTest {
         FindWords findWords = new FindWords();
         File file = new File("C:\\Users\\asuspc\\Desktop\\dic.txt");
         //File file2 = new File("C:\\Users\\asuspc\\Desktop\\dic2.txt");
-        BufferedReader br1 =new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+        BufferedReader br1;
+        br1 = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
         //FileWriter writer = new FileWriter(file2, true);
         String temp;
         while((temp=br1.readLine()) != null){
             System.out.println(br1.readLine());
             if(temp.equals("")){
-                continue;
             }
             else{
                 Dictionary dictionary = new Dictionary();
